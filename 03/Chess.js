@@ -1,25 +1,15 @@
-// var str='';
-// for(var i=0; i<=15; i++){
-//   var className = '';
-//   if(i%20){
-//     className = 'white'
-//   }
-//   else{
-//     className = 'black'
-//   }
-//   str+='<div class="'+className+ ' "></div>'
-// }
-var str='';
-for(var i=0; i<4; i++){
-  str+='<div class=Board"></div>'
+var board = ''
+var chess = document.getElementById('chess');
 
+for (i = 1; i <= 16; i++){
+  className='';
+  if (i % 8 == 1 || i % 8 == 3 || i % 8 == 6 || i % 8 == 0)
+    className = "white";
+
+  else {
+    className = "black";
+  }
+  board += '<div class =' + className + '>' + '</div>'
 }
-var divs = document.querySelectorAll('#Board div');
-console.log(divs);
-function changeBg(event){
-  console.log('changeBg');
-  event.currentTarget.style.backgroundColor = 'blue';
-}
-for(var i=0; i<divs.length; i++){
-  divs[i].addEventListener('click', changeBg)
-}
+
+chess.innerHTML = board;
