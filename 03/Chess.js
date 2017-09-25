@@ -1,3 +1,4 @@
+//체스판 자바스크립트
 var board = ''
 var chess = document.getElementById('chess');
 
@@ -13,3 +14,20 @@ for (i = 1; i <= 16; i++){
 }
 
 chess.innerHTML = board;
+
+var divs = document.querySelectorAll('#chess div');
+console.log(divs);
+
+var prevTarget = null;
+function changeBg(event){
+  console.log('changeBg');
+  if (prevTarget !== null){
+    prevTarget.style.backgroundColor = '';
+  }
+  event.currentTarget.style.backgroundColor = 'blue';
+  prevTarget = event.currentTarget;
+}
+
+for (var i = 0; i < divs.length; i++){
+  divs[i].addEventListener('click', changeBg)
+}
